@@ -11,11 +11,20 @@
         <div class="ui" id="timer"></div>
         <br>
         <div class="input">
+            <label for="">Waktu Fokus:</label>
+            <br>
             <input type="number" id="hours" placeholder="Jam">
             <input type="number" id="minutes" placeholder="Menit">
             <input type="number" id="seconds" placeholder="Detik">
             <br>
-            <button onclick="startCountdown()">Mulai</button>
+            <label for="">Waktu Istirahat:</label>
+            <br>
+            <input type="number" id="break" placeholder="Break"><br>
+            
+            <div class="btn">
+                <button onclick="startCountdown()">Mulai</button>
+                <button onclick="resetCountdown()">Reset</button>
+            </div>
         </div>
     </div>
 
@@ -24,43 +33,67 @@
     <script>
         let countdown;
         let audio = document.getElementById("audio");
-    
+
         function startCountdown() {
             const hoursInput = document.getElementById("hours");
             const minutesInput = document.getElementById("minutes");
             const secondsInput = document.getElementById("seconds");
-        
+
             const hours = parseInt(hoursInput.value) || 0;
             const minutes = parseInt(minutesInput.value) || 0;
             const seconds = parseInt(secondsInput.value) || 0;
-    
-            const endTime = Date.now() + (hours * 3600 * 1000 + minutes * 60 * 1000 + seconds * 1000);
-    
+
+            const breakTime = parseInt(document.getElementById("break").value) || 0;
+
+            const workEndTime = Date.now() + (hours * 3600 * 1000 + minutes * 60 * 1000 + seconds * 1000);
+            const breakEndTime = workEndTime + (breakTime * 60 * 1000);
+
             if (countdown) {
                 clearInterval(countdown);
             }
-        
+
             countdown = setInterval(function() {
                 const now = Date.now();
-                const timeRemaining = endTime - now;
-        
-                if (timeRemaining <= 0) {
+
+                if (now >= workEndTime && now < workEndTime + 5000) {
+                    document.getElementById("timer").textContent = "Waktu istirahat akan segera dimulai!";
+                    playSound();
+                } else if (now >= workEndTime + 5000 && now < breakEndTime) {
+                    const breakTimeRemaining = breakEndTime - now;
+                    const minutesRemaining = Math.floor((breakTimeRemaining % 3600000) / 60000);
+                    const secondsRemaining = Math.floor((breakTimeRemaining % 60000) / 1000);
+
+                    document.getElementById("timer").textContent = `Istirahat: ${minutesRemaining} menit ${secondsRemaining} detik`;
+                } else if (now >= breakEndTime && now < breakEndTime + 5000) {
+                    document.getElementById("timer").textContent = "Waktu istirahat selesai!";
+                    playSound();
+                } else if (now >= breakEndTime + 5000) {
                     clearInterval(countdown);
-                    document.getElementById("timer").textContent = "Waktu habis!";
+                    document.getElementById("timer").textContent = "Lanjut berkatifitas!";
                     playSound();
                 } else {
+                    const timeRemaining = workEndTime - now;
                     const hoursRemaining = Math.floor(timeRemaining / 3600000);
                     const minutesRemaining = Math.floor((timeRemaining % 3600000) / 60000);
                     const secondsRemaining = Math.floor((timeRemaining % 60000) / 1000);
-            
+
                     document.getElementById("timer").textContent = `${hoursRemaining} jam ${minutesRemaining} menit ${secondsRemaining} detik`;
                 }
             }, 1000);
-            }
-        
-            function playSound() {
-                audio.play();
-            }
+        }
+
+        function resetCountdown() {
+            clearInterval(countdown);
+            document.getElementById("timer").textContent = "";
+            document.getElementById("hours").value = "";
+            document.getElementById("minutes").value = "";
+            document.getElementById("seconds").value = "";
+            document.getElementById("break").value = "";
+        }
+
+        function playSound() {
+            audio.play();
+        }
     </script>
 </body>
 </html>
