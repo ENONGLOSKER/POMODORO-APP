@@ -70,7 +70,8 @@ img{
     border-radius: 6px;
     font-size: 18px;
     font-weight: bold;
-    color:rgb(232, 185, 0) ;
+    color:white ;
+    background-color: rgb(19, 240, 38);
     box-shadow: 5px 5px rgb(34, 34, 33);
 }
 .input button:hover{
@@ -126,9 +127,9 @@ img{
         padding: 90px 10px 10px 10px;
       }
 
-      .input input {
+      .container .input input {
         box-shadow: 10px 10px rgb(34, 34, 33);
-        width: 260px;
+        width: 200px;
         height: 100px;
         border-radius: 6px;
         text-align: center;
@@ -141,13 +142,13 @@ img{
 
       .input button {
         margin-top: 170px;
-        width: 680px;
+        width: 600px;
         height: 110px;
         border-radius: 6px;
         font-size: 35px;
         font-weight: bold;
-        color: rgb(232, 185, 0);
-        background-color: white;
+        color: rgb(255, 255, 255);
+        background-color: rgb(19, 240, 38);
         box-shadow: 10px 10px rgb(34, 34, 33);
       }
 
@@ -161,4 +162,23 @@ img{
         width: 350px;
         height: 380px;
       }
+      .container .input > input:nth-child(9){
+        width: 640px;
+    }
+    .input .btn{
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        justify-content: center;
+    }
+    .input .btn button{
+        width: 400px;
+        height: 110px;
+    }
+    .container .input label{
+        margin-top: 20px;
+        margin-bottom: -20px;
+        font-size: 30px;
+        display: block;
+    }
 }
