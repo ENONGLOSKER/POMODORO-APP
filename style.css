@@ -8,12 +8,13 @@ body{
     text-align: center;
 }
 .container{
-   border: 8px solid rgb(34, 34, 33);
-   box-shadow: 10px 10px rgb(34, 34, 33);
-   margin: 50px auto;
-   padding: 10px;
-   width: 500px;
-   border-radius: 12px;
+    background-color: rgb(255, 204, 2);
+    border: 8px solid rgb(34, 34, 33);
+    box-shadow: 10px 10px rgb(34, 34, 33);
+    margin: 50px auto;
+    padding: 10px;
+    width: 500px;
+    border-radius: 12px;
    /* height: 100vh; */
 }
 h1{
@@ -95,6 +96,35 @@ img{
     border: none;
 }
 
+.back-blur {
+    position: absolute;
+    left: 20%;
+    bottom: 10%;
+    top: auto;
+    right: auto;
+    bottom: 19%;
+    z-index: -1;
+    width: 400px;
+    height: 300px;
+    border-radius: 500px;
+    background-color: #e3f820;
+    filter: blur(100px);
+  }
+  
+.back-blur2 {
+    position: absolute;
+    left: 60%;
+    top: 10%;
+    right: auto;
+    bottom: 19%;
+    z-index: -1;
+    width: 400px;
+    height: 300px;
+    border-radius: 500px;
+    background-color: #fcf048;
+    filter: blur(80px);
+  }
+  
 @media screen and (max-width: 575.98px) {
     .container{
         border: none;
