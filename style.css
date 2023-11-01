@@ -71,7 +71,7 @@ img{
 
 @media screen and (min-width: 450px) {
     .container{
-        background-color: rgb(19, 241, 56);
+        /* background-color: rgb(19, 241, 56); */
         border: none;
         box-shadow: none;
         margin: 50px auto;
@@ -82,7 +82,7 @@ img{
 }
 @media screen and (min-width: 550px) {
     .container{
-        background-color: rgb(241, 19, 19);
+        /* background-color: rgb(241, 19, 19); */
         border: none;
         box-shadow: none;
         margin: 50px auto;
@@ -90,4 +90,51 @@ img{
         width: 100vw;
         height: 100vh;
      }
+
+     .ui {
+        margin: 180px 20px -90px 20px;
+        background-color: white;
+        border-radius: 6px;
+        box-shadow: -10px 5px 50px rgb(213, 213, 71);
+        height: 300px;
+        width: auto;
+        font-size: 80px;
+        font-weight: bold;
+        padding: 90px 10px 10px 10px;
+      }
+
+      .input input {
+        box-shadow: 5px 5px rgb(34, 34, 33);
+        width: 260px;
+        height: 100px;
+        border-radius: 6px;
+        text-align: center;
+        font-weight: bold;
+        padding: 20px;
+        font-size: 40px;
+        margin: 8px;
+        color: rgb(249, 203, 17);
+      }
+
+      .input button {
+        margin-top: 250px;
+        width: 680px;
+        height: 100px;
+        border-radius: 6px;
+        font-size: 35px;
+        font-weight: bold;
+        color: rgb(232, 185, 0);
+        box-shadow: 5px 5px rgb(34, 34, 33);
+      }
+
+      h1 {
+        margin-top: 50px;
+        font-size: 50px;
+      }
+      img {
+        margin-bottom: -150px;
+        margin-top: -20px;
+        width: 350px;
+        height: 380px;
+      }
 }
